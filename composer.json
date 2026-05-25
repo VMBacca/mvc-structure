@@ -1,0 +1,11 @@
+{
+    "name": "vini/mvc",
+    "description": "MVC Structure",
+    "authors": [
+        {
+            "name": "Vini MB",
+            "email": "vinimbacca@gmail.com"
+        }
+    ],
+    "require": {}
+}
