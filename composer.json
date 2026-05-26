@@ -1,11 +1,18 @@
 {
-    "name": "vini/mvc",
-    "description": "MVC Structure",
-    "authors": [
-        {
-            "name": "Vini MB",
-            "email": "vinimbacca@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "vini/mvc",
+  "authors": [
+    {
+      "name": "Vini MB",
+      "email": "vinimbacca@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    },
+    "files": [
+      "app/core/functions.php"
+    ]
+  },
+  "require": {}
 }
