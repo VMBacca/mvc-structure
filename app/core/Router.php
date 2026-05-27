@@ -5,7 +5,8 @@ namespace App\Core;
 use App\Controllers\Errors\HttpErrorController;
 
 class Router{
-    public function dispatch($url){
+    public function dispatch(string $url): void
+    {
         $url = trim($url, '/');
         $parts = $url ? explode('/', $url) : [];
         

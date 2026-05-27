@@ -3,7 +3,7 @@
 namespace App\Core;
 
 class Controller{
-    protected function view($view, $viewData = [])
+    protected function view(string $view, array $viewData = []) : void
     {
         extract($viewData);
 
