@@ -3,11 +3,13 @@
 namespace App\Core;
 
 use App\Controllers\Errors\HttpErrorController;
+use Symfony\Component\HttpFoundation\Request;
 
 class Router{
-    public function dispatch(string $url): void
+    public function dispatch(Request $request): void
     {
-        $url = trim($url, '/');
+        $string_url = $request->query->get('url', '');
+        $url = trim($string_url, '/');
         $parts = $url ? explode('/', $url) : [];
         
         $controllerName = $parts[0] ?? 'Home';
@@ -22,6 +24,7 @@ class Router{
             return;
         }
         $controller = new $controllerName();
+        $this->wireRequest($controller, $request);
 
         if(!method_exists($controller, $actionName)){
             $controller = new HttpErrorController();
@@ -32,5 +35,11 @@ class Router{
         $params = array_slice($parts, 2);
 
         call_user_func_array([$controller, $actionName], $params);
+    }
+
+    private function wireRequest(object $controller, Request $request): void{
+        if($controller instanceof Controller){
+            $controller->setRequest($request);
+        }
     }
 }

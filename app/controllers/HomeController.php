@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Core\Controller;
 use App\Core\Database;
 use App\Models\Usuario;
+use Symfony\Component\HttpFoundation\Request;
 
 class HomeController extends Controller
 {
@@ -25,5 +26,9 @@ class HomeController extends Controller
 
     public function contact(){
         $this->view('home/contact');
+    }
+
+    public function test(){
+        return $this->redirect('https://google.com.br');
     }
 }

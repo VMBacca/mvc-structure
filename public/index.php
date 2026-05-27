@@ -2,9 +2,6 @@
 
 require_once __DIR__ . "/../vendor/autoload.php";
 
-use App\Core\Router;
+use App\Core\Bootstrap;
 
-$url = $_GET['url'] ?? '';
-
-$router = new Router();
-$router->dispatch($url);
+(new Bootstrap())->run();
